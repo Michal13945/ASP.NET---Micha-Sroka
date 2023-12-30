@@ -1,0 +1,63 @@
+﻿@using Labolatorium3_app.Models;
+
+@model Contact
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    .contact-card {
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        padding: 10px;
+        margin: 40px;
+        display:flex;
+        column-gap: 20px;
+        -webkit-box-shadow: 7px 8px 26px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 7px 8px 26px -5px rgba(0,0,0,0.75);
+        box-shadow: 7px 8px 26px -5px rgba(0,0,0,0.75);
+    }
+
+    .profile {
+        width: 300px;
+        height: 300px;
+    }
+
+    .contact-card h2, .contact-card h3 {
+        margin: 0;
+        padding: 5px 0;
+    }
+
+    .contact-detail {
+        margin-bottom: 10px;
+    }
+
+    .generate {
+        margin-top: 50px;
+    }
+
+    .priority-high { color: red; }
+    .priority-medium { color: orange; }
+    .priority-low { color: green; }
+</style>
+
+<div class="contact-card">
+    <img class="profile" src="https://th.bing.com/th/id/OIP.R4gEjzGdxIEBZ42eafUHfgAAAA?rs=1&pid=ImgDetMain" />
+    <div>
+        <h2>Nazwa: @Model.Name</h2>
+        <div class="contact-detail">Email: @Model.Email</div>
+        @if (!string.IsNullOrEmpty(Model.Phone))
+        {
+            <div class="contact-detail">Telefon: @Model.Phone</div>
+        }
+        <div class="contact-detail">Data Urodzenia: @Model.Birth.ToShortDateString()</div>
+        <div class="contact-detail priority-@(Model.Priority.ToString().ToLower())">
+            Priorytet: @Model.Priority
+        </div>
+        <div class="contact-detail">
+            Data Utworzenia: @Model.Created.ToShortDateString()
+        </div>
+    </div>
+</div>

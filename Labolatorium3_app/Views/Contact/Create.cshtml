@@ -5,47 +5,44 @@
 @{
 }
 
-<h1>Dodaj kontakt</h1>
+<style>
+    .custom-form {
+        background-color: #f0f8ff; /* Jasnoniebieski kolor tła */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Cień */
+        border-radius: 10px; /* Zaokrąglone rogi */
+    }
+</style>
 
-<form asp-controller="Contact" asp-action="Create" method="post" >
+<h1 class="text-center my-4">Dodaj nowy kontakt</h1>
 
+<form asp-controller="Contact" asp-action="Create" method="post" class="card custom-form p-4 mx-auto" style="max-width: 500px;">
     <div class="mb-3">
-        <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name" />
-        <span class="text-danger" asp-validation-for="Name"></span>
-    </div>
-    
-
-    <div class="mb-3">
-        <label asp-for="Email"></label>
-        <input class="form-control" asp-for="Email" />
-    <span class="text-danger" asp-validation-for="Email"></span>
-    </div>
-
-    <div class="mb-3">
-    <label asp-for="Phone"></label>
-    <input class="form-control" asp-for="Phone" />
-    <span class="text-danger" asp-validation-for="Phone"></span>
+        <label asp-for="Name" class="form-label">Imię</label>
+        <input class="form-control" asp-for="Name" placeholder="Wpisz imię">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-    <label asp-for="Birth"></label>
-    <input class="form-control" asp-for="Birth" />
-    <span class="text-danger" asp-validation-for="Birth"></span>
+        <label asp-for="Email" class="form-label">Email</label>
+        <input class="form-control" asp-for="Email" placeholder="Wpisz adres email">
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="Priority"></label>
-        <span asp-validation-for="Priority" class="text-danger"></span>
-        <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
-    </div>
-    <br />
     <div class="mb-3">
-        <button class="btn btn-primary" type="submit">Utwórz</button>
-        <button class="btn btn-secondary" type="reset">Wyczyść</button>
+        <label asp-for="Phone" class="form-label">Numer telefonu</label>
+        <input class="form-control" asp-for="Phone" placeholder="Wpisz numer telefonu">
+        <span asp-validation-for="Phone" class="text-danger"></span>
     </div>
 
+    <div class="mb-3">
+        <label asp-for="OrganizationId" class="form-label">Organizacja</label>
+        <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations">
+            <option value="">Wybierz organizację</option>
+        </select>
+        <span asp-validation-for="OrganizationId" class="text-danger"></span>
+    </div>
 
-    
-
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </div>
 </form>

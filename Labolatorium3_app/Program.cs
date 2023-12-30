@@ -1,4 +1,12 @@
+using DinkToPdf.Contracts;
+using DinkToPdf;
+using Labolatorium3_app.Middlewares;
 using Labolatorium3_app.Models;
+using Labolatorium3_app.Services;
+using Microsoft.AspNetCore.Identity;
+using System.Text;
+using PdfSharp.Charting;
+using Data;
 
 namespace Labolatorium3_app
 {
@@ -10,17 +18,24 @@ namespace Labolatorium3_app
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IContactService, MemoryContactService>();
+  
+            builder.Services.AddTransient<IContactService, EFContactService>();
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
+            builder.Services.AddRazorPages();                        
+            builder.Services.AddDbContext<Data.AppDbContext>();
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+            builder.Services.AddTransient<IContactService, EFContactService>();
+            builder.Services.AddMemoryCache();                        
+            builder.Services.AddSession();
 
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -28,8 +43,11 @@ namespace Labolatorium3_app
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseMiddleware<LastVisitCookie>();
+            app.UseAuthentication();                                 
             app.UseAuthorization();
+            app.UseSession();                                      
+            app.MapRazorPages();                                    
 
             app.MapControllerRoute(
                 name: "default",
@@ -39,3 +57,6 @@ namespace Labolatorium3_app
         }
     }
 }
+
+
+    

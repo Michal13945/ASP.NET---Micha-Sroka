@@ -1,4 +1,5 @@
-﻿using Labolatorium3_app.Models;
+﻿using Labolatorium3_app.Middlewares;
+using Labolatorium3_app.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,15 +7,15 @@ namespace Labolatorium3_app.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
+
         }
 
         public IActionResult Index()
         {
+            ViewData["Visit"] = Response.HttpContext.Items[LastVisitCookie.CookieName];
             return View();
         }
 

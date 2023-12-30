@@ -2,7 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="text-center p-5">
+                <h1 class="display-4">Witam na stronie!</h1>
+                <p class="lead">Naucz się więcej o programowaniu w środowisku ASP.NET.</p>
+                <p>Autor: Michał Sroka</p>
+            </div>
+            <h3 class="text-lg-end pt-5">Twoja ostatnia wizyta: @ViewData["Visit"]</h3>
+        </div>
+    </div>
 </div>

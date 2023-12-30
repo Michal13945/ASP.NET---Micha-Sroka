@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labolatorium 2", "Labolator
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Labolatorium3_app", "Labolatorium3_app\Labolatorium3_app.csproj", "{105ECC08-505B-4B7C-8BA0-0343DB302B12}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{4AD184D1-B0EB-4434-B45F-82525B7C3C6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{65686845-2160-4F41-9449-2F3549453562}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{105ECC08-505B-4B7C-8BA0-0343DB302B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{105ECC08-505B-4B7C-8BA0-0343DB302B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{105ECC08-505B-4B7C-8BA0-0343DB302B12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD184D1-B0EB-4434-B45F-82525B7C3C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD184D1-B0EB-4434-B45F-82525B7C3C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD184D1-B0EB-4434-B45F-82525B7C3C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD184D1-B0EB-4434-B45F-82525B7C3C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65686845-2160-4F41-9449-2F3549453562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65686845-2160-4F41-9449-2F3549453562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65686845-2160-4F41-9449-2F3549453562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65686845-2160-4F41-9449-2F3549453562}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
