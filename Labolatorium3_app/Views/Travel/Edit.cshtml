@@ -1,0 +1,65 @@
+﻿@model Travel
+
+<form asp-action="Edit" asp-controller="Travel" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div>
+        <label asp-for="Name">Nazwa podróży</label>
+        <div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="StartDate">Data rozpoczęcia</label>
+        <div>
+            <span asp-validation-for="StartDate" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="date" asp-for="StartDate" />
+    </div>
+
+    <div>
+        <label asp-for="EndDate">Data zakończenia</label>
+        <div>
+            <span asp-validation-for="EndDate" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="date" asp-for="EndDate" />
+    </div>
+
+    <div>
+        <label asp-for="StartPlace">Miejsce początkowe</label>
+        <div>
+            <span asp-validation-for="StartPlace" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="StartPlace" />
+    </div>
+
+    <div>
+        <label asp-for="EndPlace">Miejsce końcowe</label>
+        <div>
+            <span asp-validation-for="EndPlace" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="EndPlace" />
+    </div>
+
+    <div>
+        <label asp-for="Participants">Uczestnicy</label>
+        <div>
+            <span asp-validation-for="Participants" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Participants" />
+    </div>
+
+    <div>
+        <label asp-for="Przewodnik">Przewodnik</label>
+        <div>
+            <span asp-validation-for="Przewodnik" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Przewodnik" />
+    </div>
+
+    <button type="submit">Zapisz</button>
+</form>

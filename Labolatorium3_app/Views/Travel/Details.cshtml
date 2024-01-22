@@ -1,0 +1,44 @@
+﻿@model Travel
+
+<h2>Szczegóły podróży</h2>
+
+<div>
+    <label style="font-weight: 800">Nazwa podróży:</label>
+    <div>@Model.Name</div>
+</div>
+
+<div>
+    <label style="font-weight: 800">Data rozpoczęcia:</label>
+    <div>@Model.StartDate.ToString("dd-MM-yyyy")</div>
+</div>
+
+<div>
+    <label style="font-weight: 800">Data zakończenia:</label>
+    <div>@Model.EndDate.ToString("dd-MM-yyyy")</div>
+</div>
+
+<div>
+    <label style="font-weight: 800">Miejsce początkowe:</label>
+    <div>@Model.StartPlace</div>
+</div>
+
+<div>
+    <label style="font-weight: 800">Miejsce końcowe:</label>
+    <div>@Model.EndPlace</div>
+</div>
+
+<div>
+    <label style="font-weight: 800">Uczestnicy:</label>
+    <div>@Model.Participants</div>
+</div>
+
+<div>
+    <label style="font-weight: 800">Przewodnik:</label>
+    <div>@Model.Przewodnik</div>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+    <a asp-action="Delete" asp-route-id="@Model.Id">Usuń</a> |
+    <a asp-action="Index">Powrót do listy</a>
+</div>
